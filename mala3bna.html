@@ -97,6 +97,30 @@
             text-align: center;
         }
 
+        /* رسالة المرحلة التجريبية */
+        .beta-notice {
+            background: linear-gradient(90deg, #FF9800, #FF5722);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+            border: 2px solid #FFEB3B;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .beta-notice i {
+            margin-left: 8px;
+            color: #FFEB3B;
+        }
+
         /* إعلان أعلى الصفحة */
         .ad-top {
             background: linear-gradient(90deg, #FF9800, #FF5722);
@@ -627,6 +651,23 @@
             color: var(--dark);
         }
 
+        /* رسالة التقييم والدعم */
+        .rating-message {
+            background: linear-gradient(45deg, #FF9800, #FF5722);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            border: 2px solid #FFEB3B;
+        }
+
+        .rating-message i {
+            margin-left: 8px;
+            color: #FFEB3B;
+            font-size: 20px;
+        }
+
         /* جهاز محاكاة الموبايل */
         .phone-frame {
             position: relative;
@@ -687,7 +728,7 @@
     </style>
 </head>
 <body>
-    <!-- شاشة تسجيل الدخول -->
+    <!-- شاشة التسجيل -->
     <div id="login-page">
         <div class="logo">
             <i class="fas fa-futbol"></i>
@@ -695,6 +736,11 @@
         </div>
         
         <div class="login-card">
+            <!-- رسالة المرحلة التجريبية في شاشة الدخول -->
+            <div class="beta-notice">
+                <i class="fas fa-flask"></i> مرحباً بك في النسخة التجريبية من "ملاعبنا"
+            </div>
+
             <h2>تسجيل الدخول</h2>
             
             <div class="form-group">
@@ -719,7 +765,7 @@
                 </select>
             </div>
             
-            <!-- قسم الأندية المفضلة - تم التحديث -->
+            <!-- قسم الأندية المفضلة -->
             <div class="form-group">
                 <label>الأندية المفضلة (اختياري)</label>
                 <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
@@ -742,6 +788,13 @@
                 </div>
             </div>
             
+            <!-- رسالة طلب الدعم في شاشة الدخول -->
+            <div class="rating-message" style="margin-top: 20px;">
+                <i class="fas fa-star"></i>
+                <p style="font-weight: bold; margin-bottom: 5px;">نحن في المرحلة التجريبية</p>
+                <p style="font-size: 13px;">دعمك بالتقييم والملاحظات يساعدنا في تطوير النسخة القادمة</p>
+            </div>
+            
             <button class="btn btn-primary" onclick="login()">
                 <i class="fas fa-sign-in-alt"></i> دخول للتطبيق
             </button>
@@ -760,6 +813,7 @@
             <div class="logo">
                 <i class="fas fa-futbol"></i>
                 <span id="app-title">ملاعبنا</span>
+                <span style="font-size: 12px; background: #FF9800; color: white; padding: 2px 8px; border-radius: 10px; margin-right: 8px;">تجريبي</span>
             </div>
             <div class="nav-icons">
                 <i class="fas fa-user" onclick="showPage('profile')"></i>
@@ -774,6 +828,11 @@
                 <!-- رسالة ترحيب -->
                 <div id="welcome-msg" class="welcome-message" style="display: none;">
                     <i class="fas fa-smile"></i> أهلاً وسهلاً <span id="user-name"></span> في ملاعب الصعيد!
+                </div>
+
+                <!-- رسالة المرحلة التجريبية في الصفحة الرئيسية -->
+                <div class="beta-notice">
+                    <i class="fas fa-flask"></i> نسخة تجريبية - نرحب بملاحظاتكم وتقييمكم
                 </div>
 
                 <div class="page-header">
@@ -793,6 +852,16 @@
 
                 <!-- قائمة الملاعب -->
                 <div id="stadiums-list"></div>
+
+                <!-- رسالة التقييم في الصفحة الرئيسية -->
+                <div class="rating-message">
+                    <i class="fas fa-star"></i>
+                    <p style="font-weight: bold; margin-bottom: 5px;">ساعدنا في التطوير!</p>
+                    <p style="font-size: 13px; margin-bottom: 10px;">نحن في المرحلة التجريبية ونحتاج إلى ملاحظاتك وتقييمك</p>
+                    <button style="background: white; color: #FF9800; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer;" onclick="showPage('contact')">
+                        <i class="fas fa-comment-alt"></i> أرسل ملاحظاتك
+                    </button>
+                </div>
 
                 <!-- إعلان سفلي -->
                 <div class="ad-bottom">
@@ -817,6 +886,11 @@
                     </div>
                 </div>
 
+                <!-- رسالة المرحلة التجريبية في صفحة الأخبار -->
+                <div class="beta-notice">
+                    <i class="fas fa-flask"></i> نسخة تجريبية - الأقسام الجديدة قادمة في التحديث القادم
+                </div>
+
                 <div class="page-header">
                     <h2><i class="fas fa-newspaper"></i> الأخبار الرياضية</h2>
                     <p style="color: var(--gray); font-size: 14px;">تابع أخبار ناديك المفضل أولاً بأول</p>
@@ -833,6 +907,13 @@
                 
                 <!-- قائمة الأخبار -->
                 <div class="news-section" id="news-list"></div>
+
+                <!-- رسالة التقييم في صفحة الأخبار -->
+                <div class="rating-message">
+                    <i class="fas fa-newspaper"></i>
+                    <p style="font-weight: bold; margin-bottom: 5px;">القسم الجديد قادم!</p>
+                    <p style="font-size: 13px;">قسم "ملف خاص لكل لاعب" سيتم إضافته في التحديث القادم بناءً على ملاحظاتكم</p>
+                </div>
             </div>
 
             <!-- صفحة النادي -->
@@ -860,6 +941,11 @@
 
             <!-- صفحة إضافة ملعب -->
             <div id="add" class="page">
+                <!-- رسالة المرحلة التجريبية في صفحة الإضافة -->
+                <div class="beta-notice">
+                    <i class="fas fa-flask"></i> الملاعب المضافة في النسخة التجريبية تظهر لمدة 24 ساعة فقط
+                </div>
+
                 <div class="page-header">
                     <h2><i class="fas fa-plus-circle"></i> إضافة ملعب جديد</h2>
                     <p style="color: var(--gray); font-size: 14px;">لأصحاب الملاعب في الأقصر وأسوان</p>
@@ -933,6 +1019,16 @@
                     </div>
                 </div>
                 
+                <!-- رسالة التقييم في الملف الشخصي -->
+                <div class="rating-message">
+                    <i class="fas fa-user-circle"></i>
+                    <p style="font-weight: bold; margin-bottom: 5px;">قسم الملف الشخصي قيد التطوير</p>
+                    <p style="font-size: 13px;">سيتم إضافة "ملف خاص لكل لاعب" في التحديث القادم</p>
+                    <button style="background: white; color: #FF9800; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 10px;" onclick="showPage('contact')">
+                        <i class="fas fa-lightbulb"></i> اقترح أفكاراً للتطوير
+                    </button>
+                </div>
+                
                 <button class="btn btn-secondary" style="margin-bottom: 10px;" onclick="showPage('news')">
                     <i class="fas fa-newspaper"></i> أخبار أنديتي
                 </button>
@@ -987,15 +1083,46 @@
                     <p style="color: var(--gray); font-size: 14px;">يسعدنا تواصلكم معنا لأي استفسارات أو اقتراحات</p>
                 </div>
                 
+                <!-- رسالة خاصة لطلب التقييم والملاحظات -->
+                <div class="rating-message" style="margin-bottom: 20px;">
+                    <i class="fas fa-bullhorn"></i>
+                    <p style="font-weight: bold; margin-bottom: 5px;">نحن في المرحلة التجريبية! 🚀</p>
+                    <p style="font-size: 14px; margin-bottom: 10px;">دعمكم بالتقييم والملاحظات يساعدنا في تطوير "ملاعبنا" وتحسين تجربتكم</p>
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                        <button style="background: #25D366; color: white; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer;" onclick="alert('شكراً لدعمك! سيتم توجيهك لتقييم التطبيق بعد الرفع على Google Play')">
+                            <i class="fas fa-star"></i> قيم التطبيق
+                        </button>
+                        <button style="background: white; color: #2196F3; border: none; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer;" onclick="document.getElementById('feedback-form').style.display='block'">
+                            <i class="fas fa-comment-alt"></i> أرسل ملاحظات
+                        </button>
+                    </div>
+                </div>
+
+                <!-- نموذج إرسال الملاحظات -->
+                <div id="feedback-form" style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; display: none;">
+                    <h4><i class="fas fa-edit"></i> أرسل ملاحظاتك</h4>
+                    <div class="form-group">
+                        <label>عنوان الملاحظة</label>
+                        <input type="text" class="form-control" id="feedback-title" placeholder="مثال: اقتراح إضافة ميزة جديدة">
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل الملاحظة</label>
+                        <textarea class="form-control" id="feedback-details" rows="3" placeholder="اكتب ملاحظاتك بالتفصيل..."></textarea>
+                    </div>
+                    <button class="btn btn-primary" onclick="submitFeedback()">
+                        <i class="fas fa-paper-plane"></i> إرسال الملاحظة
+                    </button>
+                </div>
+                
                 <div class="contact-methods">
                     <!-- البريد الإلكتروني الرسمي للتطبيق -->
                     <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px;">
                         <h4 style="margin-bottom: 10px;">
                             <i class="fas fa-envelope" style="color: #EA4335; margin-left: 8px;"></i>
-                            البريد الإلكتروني الرسمي
+                            البريد الإلكتروني الرسمي للتطبيق
                         </h4>
-                        <div class="email-line">info@malabna.com</div>
-                        <p style="font-size: 12px; color: #666; margin-top: 5px;">للشكاوى والاقتراحات العامة</p>
+                        <div class="email-line">Malaebnaapp@gmail.com</div>
+                        <p style="font-size: 12px; color: #666; margin-top: 5px;">للتواصل الرسمي والاستفسارات العامة</p>
                     </div>
                     
                     <!-- البريد الشخصي للمالك -->
@@ -1006,6 +1133,16 @@
                         </h4>
                         <div class="email-line">mahmoudrmdanmohamed625@gmail.com</div>
                         <p style="font-size: 12px; color: #666; margin-top: 5px;">لإضافة ملاعب جديدة وتطوير التطبيق</p>
+                    </div>
+                    
+                    <!-- البريد السابق للتطبيق -->
+                    <div style="background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px;">
+                        <h4 style="margin-bottom: 10px;">
+                            <i class="fas fa-envelope-open-text" style="color: #2196F3; margin-left: 8px;"></i>
+                            البريد الإلكتروني السابق
+                        </h4>
+                        <div class="email-line">info@malabna.com</div>
+                        <p style="font-size: 12px; color: #666; margin-top: 5px;">للحجوزات والاستفسارات القديمة</p>
                     </div>
                     
                     <!-- رقم الواتساب الرسمي -->
@@ -1041,7 +1178,8 @@
                 <div style="margin-top: 30px; background: #FFF3E0; padding: 15px; border-radius: 10px; border-right: 4px solid #FF9800;">
                     <h4><i class="fas fa-info-circle"></i> معلومات التواصل</h4>
                     <p style="color: var(--gray); font-size: 14px; margin-top: 5px;">
-                        • يمكنك التواصل عبر البريد الإلكتروني الرسمي للاستفسارات العامة<br>
+                        • <strong>Malaebnaapp@gmail.com</strong> هو البريد الرسمي الجديد للتطبيق<br>
+                        • يمكنك استخدامه للربط بـ Google Search Console و Google Play<br>
                         • للمشاركة في تطوير التطبيق أو إضافة ملعب جديد، تواصل مع المالك مباشرة<br>
                         • للرد السريع، ننصح باستخدام الواتساب خلال ساعات العمل<br>
                         • التطبيق يدعم ملاعب الأقصر وأسوان بشكل رئيسي
@@ -1202,6 +1340,32 @@
 
         let currentUser = null;
 
+        // إرسال الملاحظات
+        function submitFeedback() {
+            const title = document.getElementById('feedback-title').value;
+            const details = document.getElementById('feedback-details').value;
+            
+            if (!title || !details) {
+                alert('يرجى ملء عنوان الملاحظة وتفاصيلها');
+                return;
+            }
+            
+            // إظهار رسالة شكر
+            alert('شكراً جزيلاً على ملاحظاتك! 🎯\n\nتم إرسال ملاحظتك بنجاح إلى فريق التطوير.\nسنعمل على دراستها وتطبيق المناسب منها في التحديثات القادمة.');
+            
+            // إعادة تعيين الحقول
+            document.getElementById('feedback-title').value = '';
+            document.getElementById('feedback-details').value = '';
+            document.getElementById('feedback-form').style.display = 'none';
+            
+            // إظهار رسالة إضافية عن التقييم
+            setTimeout(() => {
+                if (confirm('هل ترغب في تقييم التطبيق أيضاً؟\n\nتقييمك يساعدنا في الوصول إلى المزيد من المستخدمين!')) {
+                    alert('شكراً! سيتم توجيهك إلى صفحة التقييم على Google Play بعد رفع التطبيق.');
+                }
+            }, 500);
+        }
+
         // عرض الملاعب
         function displayStadiums() {
             const container = document.getElementById('stadiums-list');
@@ -1235,6 +1399,9 @@
                             <span class="stadium-type">${stadium.type}</span>
                         </div>
                         ${stadium.price ? `<div class="stadium-price">${stadium.price} جنيهاً / ساعة</div>` : ''}
+                        <div style="font-size: 11px; color: #FF9800; margin-top: 8px; font-weight: bold;">
+                            <i class="fas fa-info-circle"></i> في النسخة التجريبية
+                        </div>
                     </div>
                 `;
                 container.innerHTML += stadiumCard;
@@ -1427,10 +1594,17 @@
             document.getElementById('favorite-clubs-display').textContent = 
                 clubNames.length > 0 ? `الأندية المفضلة: ${clubNames.join('، ')}` : 'لم تختر أندية مفضلة بعد';
             
+            // رسالة ترحيب خاصة بالمرحلة التجريبية
+            document.getElementById('welcome-msg').innerHTML = `
+                <i class="fas fa-smile"></i> أهلاً وسهلاً <span id="user-name">${name.split(' ')[0]}</span> في ملاعب الصعيد!<br><br>
+                <small style="color: var(--gray);">أنت تستخدم النسخة التجريبية من التطبيق</small><br>
+                <small style="color: var(--primary); font-weight: bold;">ملاحظاتك وتقييمك يساعداننا في التطوير 💪</small>
+            `;
             document.getElementById('welcome-msg').style.display = 'block';
+            
             setTimeout(() => {
                 document.getElementById('welcome-msg').style.display = 'none';
-            }, 3000);
+            }, 5000);
             
             displayStadiums();
             displayNews();
@@ -1442,16 +1616,18 @@
 
         // تسجيل الخروج
         function logout() {
-            if (confirm('هل تريد تسجيل الخروج؟')) {
-                currentUser = null;
-                document.getElementById('app-frame').style.display = 'none';
-                document.getElementById('login-page').style.display = 'flex';
-                
-                document.getElementById('name').value = '';
-                document.getElementById('phone').value = '';
-                document.getElementById('location').value = '';
-                document.querySelectorAll('.favorite-club').forEach(cb => cb.checked = false);
+            if (confirm('هل تريد تسجيل الخروج؟\n\nقبل الخروج، هل ترغب في تقييم تجربتك مع التطبيق؟')) {
+                alert('شكراً لاستخدامك "ملاعبنا"! 🌟\n\nتقييمك يساعدنا في تحسين التطوير للنسخة القادمة.');
             }
+            
+            currentUser = null;
+            document.getElementById('app-frame').style.display = 'none';
+            document.getElementById('login-page').style.display = 'flex';
+            
+            document.getElementById('name').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('location').value = '';
+            document.querySelectorAll('.favorite-club').forEach(cb => cb.checked = false);
         }
 
         // الحصول على اسم المنطقة
@@ -1505,8 +1681,8 @@
             displayStadiums();
             showPage('home');
             
-            // إرسال بريد إلكتروني للمالك (محاكاة)
-            alert('تم إضافة الملعب بنجاح!\n\nسيتم التواصل معك على البريد الإلكتروني: mahmoudrmdanmohamed625@gmail.com\nلتأكيد إضافة الملعب.');
+            // رسالة تأكيد مع طلب التقييم
+            alert('✅ تم إضافة الملعب بنجاح!\n\nسيتم التواصل معك على البريد الإلكتروني الرسمي: Malaebnaapp@gmail.com\n\n🎯 **نحن في المرحلة التجريبية**\nدعمك بالتقييم يساعدنا في التطوير للنسخة القادمة!');
             
             // إعادة تعيين الحقول
             document.getElementById('stadium-name').value = '';
@@ -1560,4 +1736,4 @@
         });
     </script>
 </body>
-</html>
+</html>؟
